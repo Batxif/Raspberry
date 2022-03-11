@@ -5,3 +5,7 @@
    src: UUID=01D4B72BE8B80DC0
    fstype: ntfs
    state: mounted
+
+- name: Instalar Docker
+  include: docker.yaml
+  
