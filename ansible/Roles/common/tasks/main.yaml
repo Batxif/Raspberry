@@ -1,0 +1,7 @@
+---
+- name: montar disco duro
+  mount:
+   path: /mnt/hdd
+   src: UUID=01D4B72BE8B80DC0
+   fstype: ntfs
+   state: mounted
