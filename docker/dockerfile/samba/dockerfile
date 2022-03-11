@@ -1,0 +1,6 @@
+FROM alpine:latest
+#falta instalar samba
+
+EXPOSE 137/udp 138/udp 139 445
+
+# HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 CMD netstat -lntp | grep -q '0.0.0.0:9091'
