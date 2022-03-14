@@ -6,4 +6,5 @@ CMD [ "/usr/bin/transmission-daemon", "-f", "--config-dir", "/var/lib/" ]
 
 EXPOSE 9091/tcp
 
-# HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 CMD netstat -lntp | grep -q '0.0.0.0:9091'
+HEALTHCHECK  CMD curl -f http://localhost:9091/ || exit 1
+#alex ->  HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 CMD netstat -lntp | grep -q '0.0.0.0:9091'
