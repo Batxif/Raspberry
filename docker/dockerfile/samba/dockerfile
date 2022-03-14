@@ -1,6 +1,12 @@
 FROM alpine:latest
-#falta instalar samba
+
+RUN apk update && apk add --no-cache samba
+
+CMD chmod 0777 /home/
+
+CMD rc-update add samba
+CMD rc-service samba start
 
 EXPOSE 137/udp 138/udp 139 445
 
-# HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 CMD netstat -lntp | grep -q '0.0.0.0:9091'
+HEALTHCHECK  CMD netstat -lntp | grep -q '0.0.0.0:445'
