@@ -1,0 +1,1 @@
+docker run -d -p 445:445 --name samba -v /mnt/hdd/:/home/ -v /mnt/hdd/conf/samba/:/etc/samba/ batxif/samba:latest
