@@ -12,21 +12,6 @@
     ]
     state: present
 
-- name: remove old docker
-  apt:
-    name: [
-      docker,
-      docker-engine,
-      docker.io,
-    ]
-    state: absent
-
-- name: extra packages for Ubuntu
-  apt:
-    name: linux-image-extra-virtual
-    state: present
-  when: ansible_distribution == "Ubuntu"
-
 - name: add key id
   apt_key:
     url: "https://download.docker.com/linux/debian/gpg"
@@ -38,11 +23,14 @@
     filename: docker
     state: present
 
-- name: install docker
-  apt:
-    name: docker-ce
-    update_cache: yes
-    state: present
+- name: get docker convenience script
+      shell: curl -fsSL https://get.docker.com -o get-docker.sh
+      args:
+        creates: /home/batxif/get-docker.sh
+    - name: install docker
+      shell: sh /home/batxif/get-docker.sh
+      args:
+        creates: /usr/bin/docker
 
 - name: install pip
   shell: curl -sSL https://bootstrap.pypa.io/get-pip.py | python
