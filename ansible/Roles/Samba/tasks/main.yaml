@@ -1,3 +1,0 @@
-- name: Aplicando K8s config de Samba
-  command:
-    cmd: kubcetl apply -f /mnt/hdd/kubernetes/Samba/samba.yaml

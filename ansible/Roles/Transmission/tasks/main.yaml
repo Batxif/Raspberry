@@ -1,3 +1,0 @@
-- name: Aplicando K8s config de Transmission
-  command:
-    cmd: kubcetl apply -f /mnt/hdd/kubernetes/Transmission/transmission.yaml
